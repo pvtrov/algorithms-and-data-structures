@@ -19,6 +19,15 @@ def tab_to_list(array):
     return h.next
 
 
+def list_to_tab(list):
+    tab = []
+    while list:
+        tab.append(list.value)
+        list = list.next
+
+    return tab
+
+
 def print_list(list):
     while list is not None:
         print(list.value, "->", end=" ")
@@ -55,7 +64,7 @@ def bucket_sort(head):
         counter_head = counter_head.next
 
     section = 10 / length
-    buckets = [Node for _ in range(length)]
+    buckets = [Node() for _ in range(length)]
     counter_head = head
     while counter_head is not None:  # wkładam elementy do dobrych kubeczków
         index = int(counter_head.value / section)
@@ -82,4 +91,9 @@ def bucket_sort(head):
                 helper = helper.next
             helper.next = buckets[i]
             helper = helper.next
-    return final_list
+    return list_to_tab(final_list)
+
+
+
+array = [0.45, 0.12, 0.98, 1.23, 5.43, 2.34, 1.89, 9.89, 5.43, 4.56, 7.89, 8.97, 1.90]
+print(bucket_sort(tab_to_list(array)))

@@ -1,3 +1,8 @@
+# todo pyknac hipifaja od dołu liscia
+# todo pyknac scalanie serii naturalne
+# todo remove min
+# todo remove max
+
 
 def heapify(A, n, i):  # O(logn)
     l = 2 * i +1  # lewy

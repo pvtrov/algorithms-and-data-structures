@@ -69,7 +69,7 @@ def no_tail_quicksort(T, p, r):
         else:
             no_tail_quicksort(T, q + 1, r)
             r = q - 1
-
+    return T
 
 # quicksort na linkedlisty
 class Node:

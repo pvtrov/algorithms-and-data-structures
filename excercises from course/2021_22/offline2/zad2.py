@@ -1,8 +1,11 @@
 from zad2testy import runtests
+from math import inf
+import copy
+
+"""
+Aga Patro
+"""
 
 
 
-def depth(L):
-    return 0
-7tftf
-runtests( depth ) 
+runtests(depth)

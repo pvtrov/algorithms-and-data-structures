@@ -26,10 +26,12 @@ def select(A, p, r, k):  # statystyki pozycyjne
     else:
         return select(A, q + 1, r, k)
 
+
 def difference(A):
     x = select(A, 0, len(A)-1, len(A)-1)
     y = select(A, 0, len(A)-1, len(A)-2)
     print(x, y)
+
 
 if __name__ == '__main__':
     A = [9, 6, 4, 7, 2, 7, 5, 1, 2, 10]
