@@ -2,7 +2,7 @@
 def binary_search(left, right, array, element):
     middle = left + right // 2
     if array[middle] == element:
-        return middle;
+        return middle
     elif array[middle] < element:
         binary_search(middle, right, array, element)
     else:

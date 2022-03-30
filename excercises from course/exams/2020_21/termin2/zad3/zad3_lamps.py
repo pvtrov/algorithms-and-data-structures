@@ -32,7 +32,6 @@ def lamps( n,T ):
                 blue_counter -= 1
 
             lamps_colours[j] = changing_colours(lamps_colours[j])
-
             if lamps_colours[j] == 'b':  # ta swieci na niebiesko wiec dodaje
                 blue_counter += 1
 

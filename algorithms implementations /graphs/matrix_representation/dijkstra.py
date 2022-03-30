@@ -55,7 +55,7 @@ def dijkstra1(G, s, t):  # między podanymi wierzchołkami
     while not pq.empty():
         d, v = pq.get()
         if v == t:
-            # printsolution(distance, parent, s)
+            printsolution(distance, parent, s)
             return parent, distance[t]
         for u in range(n):
             if G[v][u] != 0 and visited[u] == False:
@@ -64,6 +64,7 @@ def dijkstra1(G, s, t):  # między podanymi wierzchołkami
                     parent[u] = v
                     pq.put((distance[u], u))
     # printsolution(distance, parent ,s)
+
 
 if __name__ == '__main__':
     G = [[0, 4, 0, 0, 0, 0, 0, 8, 0],

@@ -29,9 +29,7 @@ O(n^3)
 def zbigniew( A ):
     n = len(A)
     kcals = [[] for _ in range(n)]
-
     kcals[0].append((0, A[0], -1))
-
     for i in range(1, n):
         counter = 0     # counter służy by sprawdzic czy z którejś liczby sie doskoczyło
         for j in range(i):
@@ -41,11 +39,9 @@ def zbigniew( A ):
                     kcals[i].append((kcals[j][k][0]+1, kcals[j][k][1]-(i-j)+A[i], j))
         if counter == 0:
             return -1
-
-    solution = kcals[n-1][0][0]
-    return solution
+    return kcals[n-1][0][0]
 
 
-       
-
-runtests( zbigniew ) 
+a = [2, 2, 1, 0, 0, 0]
+print(zbigniew(a))
+# runtests( zbigniew )

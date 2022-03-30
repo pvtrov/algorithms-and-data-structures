@@ -18,51 +18,48 @@ from math import inf
 from queue import PriorityQueue
 
 
-def path(parent, start, end):
-    helper = end
-    road = []
-    while helper != start:
-        if helper == -1:
-            return None
-        road.append(helper)
-        helper = parent[helper]
-    road.append(start)
-    return road[::-1]
+def print_path(parent, i, result):
+    if parent[i] == -1:
+        result.append(i)
+        return result
+    result = print_path(parent, parent[i], result)
+    result.append(i)
+    return result
 
 
-def jak_dojade(graph, stations, capacity, start, end):
-    full_capacity = capacity
-    length = len(graph)
-    distance = [inf for _ in range(length)]
-    parent = [-1 for _ in range(length)]
-    visited = [False for _ in range(length)]
-    distance[start] = 0
+def jakdojade(graph, stations, max_capacity, start, destination):
+    n = len(graph)
+    # actual_capacity = max_capacity
+    distance = [inf for _ in range(n)]
+    parent = [-1 for _ in range(n)]
+    visited = [False for _ in range(n)]
+    actual_capacity = [0 for _ in range(n)]
     visited[start] = True
-    fuel = [0 for _ in range(length)]
-    fuel[start] = capacity
-    queueueueue = PriorityQueue()
-    queueueueue.put((distance[start], start))
+    pq = PriorityQueue()
+    distance[start] = 1
+    actual_capacity[start] = max_capacity
 
-    for i in range(length):
-        queueueueue.put((distance[i], i))
+    for i in range(n):
+        pq.put((distance[i], i))
+    while not pq.empty():
+        d, vertex = pq.get()
+        if vertex == destination:
+            result = print_path(parent, destination, [])
+            if len(result) == 1 and result[0] == destination:
+                return -1
+            else:
+                return result
 
-    while not queueueueue.empty():
-        road, vertex = queueueueue.get()
-        if vertex == end:
-            return path(parent, start, end)
-
-        for u in range(length):
-            if graph[vertex][u] != -1 and graph[vertex][u] <= fuel[vertex]:
+        for u in range(n):
+            if 0 < graph[vertex][u] <= actual_capacity[vertex] and not visited[u]:
                 if distance[vertex] + graph[vertex][u] <= distance[u]:
                     distance[u] = distance[vertex] + graph[vertex][u]
                     parent[u] = vertex
                     if u in stations:
-                        fuel[u] = full_capacity
+                        actual_capacity[u] = max_capacity
                     else:
-                        fuel[u] = fuel[vertex] - graph[vertex][u]
-                    queueueueue.put((distance[u], u))
-
-    return path(parent, start, end)
+                        actual_capacity[u] = actual_capacity[vertex] - graph[vertex][u]
+                    pq.put((distance[u], u))
 
 
-runtests( jak_dojade ) 
+runtests( jakdojade )
