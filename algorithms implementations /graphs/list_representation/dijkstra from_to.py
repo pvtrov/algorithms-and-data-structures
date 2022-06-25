@@ -36,4 +36,4 @@ graph = [[(1, 2), (2, 4)],
          [(3, 1), (7, 3)],
          [(5, 7), (6, 3), ]]
 
-print(dijkstra_from_to(graph, 0, 7))
+print(dijkstra_from_to(graph, 0, 0))

@@ -3,11 +3,11 @@ Hello, this is my repo from ASD course on AGH UST.
 
 In [algorithms implementation] you can find implementations of algorithms used to solve various problems. 
 
-In [exercices from course -> labs] you will find solved exercises from my labs.
+In [exercises from course -> labs] you will find solved exercises from my labs.
 
-In exercices from course -> [exams] or [colloquiums] you will find solved problems from tests or exams.
+In exercises from course -> [exams] or [colloquiums] you will find solved problems from tests or exams.
 
-In [excercies from LeetCode] you can see my solutions for [LeetCode] problems.
+In [exercises from LeetCode] you can see my solutions for [LeetCode] problems.
 
 
 [algorithms implementation]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/algorithms%20implementations%20

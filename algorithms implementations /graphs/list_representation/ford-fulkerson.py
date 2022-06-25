@@ -36,14 +36,11 @@ def ford_fulkerson(graph, source, sink):
     while searching(graph, source, sink, parent):
         path_flow = inf
         output = sink
+
         while output != source:
-            i = 0
-            while i < len(graph[parent[output]]):
-                if output == graph[parent[output]][i][0]:
-                    path_flow = min(path_flow, graph[parent[output]][i][1])
-                    output = parent[output]
-                else:
-                    i += 1
+            if graph[parent[output]][output] < path_flow:
+                path_flow = graph[parent[output]][output]
+            output = parent[output]
 
         max_flow += path_flow
         v = sink
