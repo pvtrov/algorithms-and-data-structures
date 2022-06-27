@@ -5,3 +5,10 @@ powinna znać co najmniej 5 osób oraz co najmniej 5 osób nie znać.
 Zaproponuj algorytm który przyjmuje na wejściu listę n osób oraz listę par osób które się znają, a na wyjściu daje
 możliwie najdłuższą listę gości.
 """
+from math import inf
+
+"""
+zachlannie usuwamy ludzi którzy nie spelniaja warunkow
+"""
+
+
