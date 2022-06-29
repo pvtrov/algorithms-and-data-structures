@@ -11,16 +11,16 @@ def DFS(u, graph, deleted, cycle, vertex_counter):
 
 
 def euler(graph):
-    for i in range(len(graph)):  # sprawdzam czy moze byc cykl
+    for i in range(len(graph)):
         if len(graph[i]) == 0 or len(graph[i]) % 2 != 0:
             return None
 
-    deleted = [[False for _ in range(len(graph))] for _ in range(len(graph))] # macierz usunietych krawedzi
-    cycle = [0]             # odpoweidnie wierzchołki cyklu
-    vertex_counter = []         # użyte wierzchołki, pomoze w stwerdzeniu czy graf jest spojny
+    deleted = [[False for _ in range(len(graph))] for _ in range(len(graph))]
+    cycle = [0]
+    vertex_counter = []
     cycle = DFS(0, graph, deleted, cycle, vertex_counter)
-    if len(vertex_counter) != len(graph):   # jeśli liczba wierzchołkow w cyklu jest inna od liczby wierzchlkow w grafie
-        return None                         # oznacza ze graf jest niespojny
+    if len(vertex_counter) != len(graph):
+        return None
     return cycle
 
 
