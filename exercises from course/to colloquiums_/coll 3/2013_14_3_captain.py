@@ -25,19 +25,20 @@ def is_in_map(n, m, row, column):
     return 0 <= row < m and 0 <= column < n
 
 
-def sail(map, row, column, int):
+def sail(map, row, column, int, visited):
     if row == len(map)-1 and column == len(map[0])-1:
         return True
 
+    visited[row][column] = True
     for move in moves:
         new_row = row + move[0]
-        new_column = row + move[1]
-        if is_in_map(len(map[0]), len(map), new_row, new_column) \
-                and map[new_row][new_column].depth > int \
-                and map[new_row][new_column].parent != (row, column):
-            map[new_row][new_column].parent = (row, column)
-            return sail(map, new_row, new_column, int)
-    return
+        new_column = column + move[1]
+        if is_in_map(len(map[0]), len(map), new_row, new_column) and map[new_row][new_column].depth > int and not visited[new_row][new_column]:
+            sometching =  sail(map, new_row, new_column, int, visited)
+            if sometching:
+                return True
+
+    return False
 
 
 def captain(map, int):
@@ -45,14 +46,15 @@ def captain(map, int):
         for j in range(len(map[0])):
             map[i][j] = Field(map[i][j])
 
-    return sail(map, 0, 0, int)
+    visited = [[False for _ in range(len(map[0]))] for _ in range(len(map))]
+    return sail(map, 0, 0, int, visited)
 
 
 map = [[6, 5, 9, 2, 4],
        [3, 6, 2, 1, 8],
        [5, 1, 0, 2, 3],
        [9, 8, 7, 6, 0],
-       [5, 4, 6, 2, 1],
-       [7, 9, 8, 2, 5]]
+       [5, 4, 1, 1, 1],
+       [7, 9, 1, 2, 5]]
 print(captain(map, 1))
 
