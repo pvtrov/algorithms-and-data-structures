@@ -55,7 +55,7 @@ def jak_dojade(graph, stations, max_capacity, start, destination):
         if vertex == destination:
             result = print_path(parent, destination, [])
             if len(result) == 1 and result[0] == destination:
-                return None
+                return -1
             else:
                 return result
 

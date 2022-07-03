@@ -1,3 +1,4 @@
+from zad3testy import runtests
 """
 Dana jest tablica A zawierająca n = len(A) liczb naturalnych. Dodatkowo wiadomo, że A w sumie
 zawiera k różnych liczb (należy założyć, że k jest dużo mniejsze niż n). Proszę zaimplementować
@@ -70,6 +71,4 @@ def longest_incomplete(A, k):
     return max(lengths)
 
 
-A = [1, 100, 5, 100, 1, 5, 1, 5]
-A1 = [6, 7, 8, 6, 5, 4, 3, 2, 6, 7, 8]
-print(longest_incomplete(A1, 7))
+runtests( longest_incomplete ) 
