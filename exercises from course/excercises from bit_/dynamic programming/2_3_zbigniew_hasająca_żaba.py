@@ -16,3 +16,44 @@ Przykład. Dla tablicy A = [2,2,1,0,0,0] wynikiem jest 3 (Zbigniew skacze z 0 na
 na 2 i z 2 na 5, kończąc z zerową energią). Dla tablicy A = [4,5,2,4,1,2,1,0] wynikiem jest 2
 (Zbigniew skacze z 0 na 3 i z 3 na 7, kończąc z jedną jednostką energii)
 """
+
+
+def eat(prev, snaks, index):
+    now = []
+    for i in range(len(prev)):
+        min_ = prev[i][0]
+        kcals = prev[i][1]
+        kcals += snaks[index] - 1
+        if kcals > 0:
+            now.append([min_ + 1, kcals])
+    return now
+
+
+def do_not_eat(prev, snaks, index):
+    now = []
+    for i in range(len(prev)):
+        min_ = prev[i][0]
+        kcals = prev[i][1] - 1
+        if kcals > 0:
+            now.append([min_, kcals])
+    return now
+
+
+def zbigniew(A):
+    n = len(A)
+    jumps = [[] for _ in range(n)]
+    jumps[0].append([1, A[0]])
+    for i in range(1, len(A)-1):
+        if A[i] > 0:
+            eaten = eat(jumps[i-1], A, i)
+            not_eaten = do_not_eat(jumps[i-1], A, i)
+            eaten.extend(not_eaten)
+            jumps[i] = eaten
+        else:
+            not_eaten = do_not_eat(jumps[i-1], A, i)
+            jumps[i] = not_eaten
+
+    if not jumps[-2]:
+        return -1
+    else:
+        return min(jumps[-2][i][0] for i in range(len(jumps[-2])))

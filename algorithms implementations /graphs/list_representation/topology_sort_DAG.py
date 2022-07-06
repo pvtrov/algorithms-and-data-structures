@@ -1,7 +1,7 @@
 def dfs_rec(graph, start, path, visited):
     visited[start] = True
     for edge in graph[start]:
-        if edge not in path:
+        if edge not in path and not visited[edge]:
             # print(edge, path)
             dfs_rec(graph, edge, path, visited)
     path.insert(0, start)
