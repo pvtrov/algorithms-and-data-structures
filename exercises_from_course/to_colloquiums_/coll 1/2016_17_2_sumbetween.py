@@ -11,6 +11,8 @@ O((from-to) * n)
 """
 
 
+
+
 def partition(array, p, r):
     x = array[r]
     j = p-1
