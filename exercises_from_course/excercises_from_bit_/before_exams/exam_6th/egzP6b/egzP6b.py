@@ -11,8 +11,9 @@ moves = {
     'LD': [-2, -1]
 }
 
+
 # 1 -> świeci, -1 -> nie świeci
-def jump ( M ):
+def jump(M):
     fields = {}
     fields[(0, 0)] = 1
     current_move = [0, 0]
@@ -37,7 +38,7 @@ def jump ( M ):
     return counter
 
 
-runtests(jump, all_tests = True)
+runtests(jump, all_tests=True)
 
 # M = ['UL', 'RD', 'LU', 'LU', 'RD', 'DL', 'UR', 'DR']
 # print(jump(M))
