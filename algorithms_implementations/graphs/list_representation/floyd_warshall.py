@@ -23,7 +23,7 @@ def Floyd_Warshall(graph):
 if __name__ == '__main__':
     graph = [[(1, 2), (2, 4)],
              [(2, 3), (3, 3)],
-             [(3, -1), (4, -2)],
+             [(3, 2), (4, 4)],
              [(4, 4), (3, 3)],
              []]
     print(Floyd_Warshall(graph))
