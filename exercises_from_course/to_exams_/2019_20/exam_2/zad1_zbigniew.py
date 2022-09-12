@@ -51,6 +51,42 @@ def zbigniew(A):
         return -1
     else:
         return min(jumps[-2][i][0] for i in range(len(jumps[-2])))
-       
 
-runtests(zbigniew)
+
+def yes(previous, val):
+    current = []
+    for i in range(len(previous)):
+        min_ = previous[i][0] + 1
+        new_val = previous[i][1] + val - 1
+        if new_val > 0:
+            current.append([min_, new_val])
+    return current
+
+
+def no(previous):
+    current = []
+    for i in range(len(previous)):
+        if previous[i][1] - 1 > 0:
+            current.append([previous[i][0], previous[i][1]-1])
+    return current
+
+
+def function(A):
+    steps = [[] for _ in range(len(A))]
+    steps[0].append([1, A[0]])
+
+    for i in range(1, len(A)):
+        yes_table = []
+        if A[i] > 0:
+            yes_table = yes(steps[i-1], A[i])
+        no_table = no(steps[i-1])
+        yes_table.extend(no_table)
+        steps[i] = yes_table
+
+    if not steps[-2]:
+        return None
+    else:
+        return min(steps[-2][i][0] for i in range(len(steps[-2])))
+
+
+runtests(function)
