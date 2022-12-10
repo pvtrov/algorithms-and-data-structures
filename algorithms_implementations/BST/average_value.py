@@ -29,6 +29,9 @@ Sum = 0
 ctr = 0
 
 
+
+
+
 def inorder(root):
     global Sum  # suma elementów
     global ctr  # licznik elementów
