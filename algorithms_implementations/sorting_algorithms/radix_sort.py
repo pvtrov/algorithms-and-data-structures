@@ -1,4 +1,5 @@
-# SORTOWANIE WYRAZÓW O TEJ SAMEJ DLUGOSCI   # O(d(n + k))  k-liczba róznych cyfr , d = liczba cyfr w liczbach,
+# SORTOWANIE WYRAZÓW O TEJ SAMEJ DLUGOSCI
+# O(d(n + k))  k-liczba róznych cyfr , d = liczba cyfr w liczbach,
 
 def radix1(A, n, d):
     for i in range(d - 1, -1, -1):
