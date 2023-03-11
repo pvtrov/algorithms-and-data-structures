@@ -10,7 +10,7 @@ In exercises from course -> [exams] or [colloquiums] you will find solved proble
 In [exercises from LeetCode] you can see my solutions for [LeetCode] problems.
 
 
-[algorithms implementation]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/algorithms%20implementations%20
+[algorithms implementation]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/algorithms_implementations
 [exercises from course -> labs]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/excercises%20from%20course/labs
 [exams]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/exercises%20from%20course/to%20exams_
 [colloquiums]: https://github.com/pvtrov/Algorithms-and-Data-Structures/tree/master/exercises%20from%20course/to%20colloquiums_
